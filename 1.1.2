@@ -1,0 +1,14 @@
+import android
+import time
+
+droid = android.Android()
+
+def listen_for_calls():
+    while True:
+        call_state = droid.telephonyGetCallState().result
+        if call_state == 1:  # 1表示有来电
+            droid.makeToast("您有来电！")
+            time.sleep(10)  # 等待10秒，避免重复提醒
+
+if __name__ == "__main__":
+    listen_for_calls()
